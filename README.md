@@ -5,8 +5,9 @@
 
 ## 스터디 진행 방식
 **스터디원**
-- 김가경
-- 최가희 
+- [김가경](https://github.com/GaGa-Kim)
+- [최가희](https://github.com/cutehumanS2) 
+<br/>
 
 **스터디 방식**
 - 교재 목차에 따라 스터디를 진행 후 커밋 및 학습 보고
