@@ -1,4 +1,4 @@
-# 상하좌우
+# 1_상하좌우.py
 # N 입력 받기
 n = int(input())
 x, y = 1, 1 # 현재 위치
@@ -23,4 +23,3 @@ for plan in plans:
     x, y = nx, ny
 
 print(x, y)
-

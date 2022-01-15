@@ -1,4 +1,4 @@
-# 모험가 길드
+# 4_모험가 길드.py
 n = input()
 data = list(map(int, input().split())) # 공포도
 data.sort() # 오름차순으로 정렬
@@ -12,4 +12,4 @@ for i in data: # 공포도를 낮은 것부터 하나씩 확인하며
         result += 1 # 총 그룹의 수 증가시키기
         count = 0 # 현재 그룹에 포함된 모험가의 수 초기화
     
-print(result) # 총 그룹의 수 출력
+print(result) # 총 그룹의 수 출력​
