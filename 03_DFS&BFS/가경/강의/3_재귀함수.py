@@ -1,0 +1,6 @@
+# 3_재귀함수.py
+def recursive_function():
+    print('재귀 함수를 호출합니다.')
+    recursive_function()
+    
+recursive_function()
