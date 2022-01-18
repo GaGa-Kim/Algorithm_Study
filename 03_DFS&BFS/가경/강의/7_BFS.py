@@ -1,6 +1,5 @@
 # 7_BFS.py
 from collections import deque
-import queue
 
 # BFS 메서드 정의
 def bfs(graph, start, visited):
