@@ -22,7 +22,7 @@ def dfs(x, depth):
     for y in graph[x]:
         if c[y]: # 인접한 노드가 이미 깊이를 구했다면 넘기기
             continue
-        parent[y][0] = x # 한 칸 위에 있는 부모에 대한 정보 (2^0)
+        parent[y][0] = x # 한 칸 위에 있는 부모에 대한 정보 (2^0번째 부모에 대한 정보) - 인접한 노드의 2^0번째 부모 노드를 자신(x)으로 정해주기
         dfs(y, depth + 1) # 인접한 노드에 대해서 현재까지의 노드 깊이 + 1를 깊이로 대입
 
 # 전체 부모 관계를 설정하는 함수 - 다이나믹 프로그래밍을 이용해서 2의 제곱으로 건너뛸 때의 부모 값 기록
@@ -30,7 +30,7 @@ def set_parent():
     dfs(1, 0) # 루트 노드는 1번 노드
     for i in range(1, LOG):
         for j in range(1, n + 1):
-            parent[j][i] = parent[parent[j][i - 1]][i - 1] # 2의 제곱으로 건너뛸 때의 부모 값 기록
+            parent[j][i] = parent[parent[j][i - 1]][i - 1] # 2의 제곱으로 건너뛸 때의 부모 값 기록 ( 2^i 번째 조상 노드 저장 - j의 2^i의 조상 = j의 2^(i-1) 조상의 2^(i-1) 조상)
 
 # A와 B의 최소 공통 조상을 찾는 함수
 def lca(a, b):

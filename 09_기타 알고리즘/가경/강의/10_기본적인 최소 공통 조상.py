@@ -17,10 +17,10 @@ for _ in range(n - 1):
 def dfs(x, depth):
     c[x] = True
     d[x] = depth
-    for y in graph[x]:
+    for y in graph[x]: # 그래프 정보를 보며 (연결된 노드 정보)
         if c[y]: # 인접한 노드가 이미 깊이를 구했다면 넘기기
             continue
-        parent[y] = x
+        parent[y] = x # 인접한 노드의 깊이가 구해져 있지 않다면 그 노드의 부모 노드를 자신으로 정해주기
         dfs(y, depth + 1) # 인접한 노드에 대해서 현재까지의 노드 깊이 + 1를 깊이로 대입
 
 # A와 B의 최소 공통 조상을 찾는 함수
