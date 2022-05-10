@@ -1,4 +1,4 @@
-# 2_서로소 집합 경로 압축.py
+# 탑승구.py
 # 특정 원소가 속한 집합을 찾기
 def find_parent(parent, x): # 부모 테이블, 노드번호
     # 루트 노드가 아니라면, 루트 노드를 찾을 때까지 재귀적으로 호출
@@ -15,27 +15,23 @@ def union_parent(parent, a, b):
     else:
         parent[a] = b
 
-# 노드의 개수와 간선(Union 연산)의 개수 입력 받기
-v, e = map(int, input().split())
-parent = [0] * (v + 1) # 부모 테이블 초기화하기
+# 탑승구의 개수 입력받기
+g = int(input())
+# 비행기의 개수 입력받기
+p = int(input())
+parent = [0] * (g + 1) # 부모 테이블 초기화하기
 
 # 부모 테이블상에서, 부모를 자기 자신으로 초기화
-for i in range(1, v + 1):
+for i in range(1, g + 1):
     parent[i] = i
 
-# Union 연산을 각각 수행
-for i in range(e):
-    a, b = map(int, input().split())
-    union_parent(parent, a, b)
+result = 0
+for _ in range(p):
+    data = find_parent(parent, int(input())) # 현재 비행기의 탑승구의 루트 확인
+    if data == 0: # 현재 루트가 0이라면, 종료
+        break
+    union_parent(parent, data, data - 1) # 그렇지 않다면 바로 왼쪽의 집합과 합치기
+    result += 1
 
-# 각 원소가 속한 집합 출력하기
-print('각 원소가 속한 집합: ', end='')
-for i in range(1, v + 1):
-    print(find_parent(parent, i), end=' ')
+print(result)
 
-print()
-
-# 부모 테이블 내용 출력하기
-print('부모 테이블: ', end='')
-for i in range(1, v + 1):
-    print(parent[i], end=' ')
