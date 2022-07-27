@@ -29,3 +29,17 @@ for i in range(2, n+1):
                     list.append(j)
 
 print(list[k-1])
+
+#------------------------------------------------------
+n, k = map(int, input().split())
+# 처음엔 모든 수가 소수라고 초기화
+list = [True for _ in range(n+1)]
+
+for i in range(2, n+1):
+    for j in range(i, n+1, i):
+        if list[j]:
+            list[j] = False
+            k -= 1
+            if k == 0:
+                print(j)
+
