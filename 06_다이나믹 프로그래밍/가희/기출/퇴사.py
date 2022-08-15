@@ -8,6 +8,7 @@
 # Ti ~ 상담을 완료하는 데 걸리는 기간 (1 <= Ti <= 5)
 # Pi ~ 상담했을 때 받을 수 있는 금액 (1 <= Pi <= 1,000)
 
+#--------------------책 풀이---------------------
 
 n = int(input())
 
@@ -34,3 +35,24 @@ for i in range(n-1, -1, -1):
         dp[i] = max_value
         
 print(max_value)
+
+#--------------------------------------------------------
+
+n = int(input())
+
+t, p = [], []
+for _ in range(n):
+    x, y = map(int, input().split())
+    t.append(x)
+    p.append(y)
+    
+d = [0] * (n+1)
+
+for i in range(n-1, -1, -1):
+    # i일에 상담을 하는 게 퇴사일 넘기면 상담x
+    if i + t[i] > n:
+        d[i] = d[i+1]
+    else: # i일에 상담 안 하는 것과 하는 것 중 최댓값
+        d[i] = max(d[i+1], p[i] + d[i+t[i]])
+
+print(d[0])     
