@@ -6,6 +6,9 @@
 # : 정렬된 순서를 유지하면서 리스트 a에 데이터 x를 삽입할 가장 왼쪽 인덱스 찾는 메서드
 # 2) bisect_right(a, x)
 # : 정렬된 순서를 유지하면서 리스트 a에 데이터 x를 삽입할 가장 오른쪽 인덱스 찾는 메서드
+# 3) bisect(a, x)
+# : bisect_right(a, x)와 같음
+
 
 from bisect import bisect_left, bisect_right
 
