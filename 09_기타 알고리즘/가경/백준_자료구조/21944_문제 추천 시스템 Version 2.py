@@ -15,7 +15,7 @@ problem_dict = dict()
 
 for _ in range(n):
     P, L, G = map(int, input().split())
-    calc_num = L * rank_prob + P # 난이도와 문제 번호 합치기 (난이도 * 100000 +  문제 번호)
+    calc_num = L * rank_prob + P # 난이도와 문제 번호 합치기 (난이도 * 100001 +  문제 번호)
     recommend1_dic[G][calc_num] = 1 # {G:{LP:bool}}
     recommend2_dic[calc_num] = 1 # {LP:bool}
     recommend3_dic[L][P] = 1 # {L:{P:bool}}
