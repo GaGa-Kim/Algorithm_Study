@@ -43,6 +43,6 @@ def get_sum(candidate):  # 도시의 치킨 거리(=치킨 거리의 합) 계산
 # 도시의 치킨거리 최솟값 구하기
 result = 1e9
 for candidiate in candidiates:
-    result = min(result, get_sum(candidate))
+    result = min(result, get_sum(candidiate))
 
 print(result)
