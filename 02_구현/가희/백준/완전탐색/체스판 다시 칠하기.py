@@ -19,22 +19,21 @@ for i in range(n-7):
     for j in range(m-7):
         cnt_b = 0 # 맨 위쪽 위칸이 검은색인 경우
         cnt_w = 0 # 맨 위쪽 위칸이 흰색인 경우
-        
         for a in range(i, i+8):
             for b in range(j, j+8):
                 # a+b 합이 짝수이면 시작점의 색과 같아야 함
                 if (a+b) % 2 == 0:
-                    if board[a][b] != 'B':
-                        cnt_b += 1
                     if board[a][b] != 'W':
                         cnt_w += 1
+                    if board[a][b] != 'B':
+                        cnt_b += 1
                 else: # a+b 합이 홀수이면 시작점의 색과 달라야 함
-                    if board[a][b] != 'W':
-                        cnt_w += 1
                     if board[a][b] != 'B':
+                        cnt_w += 1
+                    if board[a][b] != 'W':
                         cnt_b += 1
-        result.append(min(cnt_b, cnt_w))
-        
+        result.append(cnt_b)
+        result.append(cnt_w)
                         
 print(min(result))                    
 
