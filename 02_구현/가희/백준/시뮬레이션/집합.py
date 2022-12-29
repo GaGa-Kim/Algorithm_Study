@@ -9,6 +9,42 @@
 # 5. all: S를 {1, 2, ..., 20}으로 바꿈
 # 6. empty: S를 공집합으로 바꿈
 
+# 없으면 시간 초과 남.. 
+import sys
+input = sys.stdin.readline
+
+# 수행해야 하는 연산 수 (1 <= m <= 3,000,000)
+m = int(input())
+s = set()
+
+for _ in range(m):
+    tmp = input().split()
+    
+    if len(tmp) == 1:
+        if tmp[0] == 'all':
+            s = set([i for i in range(1, 21)])
+        else:
+            s.clear()
+        continue
+    
+    op, num = tmp[0], int(tmp[1])
+    
+    if op == 'add':
+        s.add(num)
+    elif op == 'remove':
+        s.discard(num)
+    elif op == 'check':
+        if num in s:
+            print(1)
+        else:
+            print(0)
+    elif op == 'toggle':
+        if num in s:
+            s.remove(num)
+        else:
+            s.add(num)
+
+
 #----------------시간 초과-------------------------
 # 수행해야 하는 연산 수 M (1 <= M <= 3,000,000)
 m = int(input())
@@ -42,41 +78,3 @@ for _ in range(m):
         s = set([i for i in range(1,21)])
     elif op == 'empty':
         s.clear() 
-
-
-#--------------통과 코드----------------
-import sys
-input = sys.stdin.readline
-
-# 수행해야 하는 연산 수 M (1 <= M <= 3,000,000)
-m = int(input())
-
-s =  set()
-# 수행해야 하는 연산
-for _ in range(m):
-    tmp = input().split()
-    
-    if len(tmp) == 1:
-        if tmp[0] == 'all':
-            s = set([i for i in range(1,21)]) 
-        else:
-            s.clear()
-        continue
-
-    op, num = tmp[0], int(tmp[1])
-    
-    if op == 'add':
-        s.add(num)
-    elif op == 'remove':
-        s.discard(num)
-    elif op == 'check':
-        # check 연산 주어질 때마다 결과 출력
-        if num in s:
-            print(1)
-        else:
-            print(0)
-    elif op == 'toggle':
-        if num in s:
-            s.remove(num)
-        else:
-            s.add(num)
