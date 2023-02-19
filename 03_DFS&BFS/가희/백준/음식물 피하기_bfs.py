@@ -40,7 +40,6 @@ def bfs(x, y):
 for i in range(n):
     for j in range(m):
         if graph[i][j] == 1 and not visited[i][j]:
-            # visited[i][j] = True
             tmp = bfs(i, j)
             result = max(result, tmp)
         
