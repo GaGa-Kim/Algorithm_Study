@@ -28,6 +28,15 @@ for _ in range(t):
             else:
                 if i < j:
                     dp[i][j] = dp[i][j-1] + dp[i-1][j-1]
+            
     print(dp[n][m])
+
+# 조합 풀이 ------------------------------------------------
+# 동쪽(m)에서 중복되지 않게 n(서쪽)만큼 뽑아주면 됨
+import math
+
+t = int(input())
+for _ in range(t):
+    n, m = map(int, input().split())
+    print(math.comb(m, n))
     
-# 팩토리얼+조합 코드 추가하기
