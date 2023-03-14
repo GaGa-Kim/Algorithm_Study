@@ -23,7 +23,7 @@ dp[3] = 1
 for i in range(4, n+1):
     dp[i] = min(dp[i-1], dp[i-3])+1
 
-if dp[i] % 2 == 0:
+if dp[n] % 2 == 0:
     print('CY')
 else:
     print('SK')
