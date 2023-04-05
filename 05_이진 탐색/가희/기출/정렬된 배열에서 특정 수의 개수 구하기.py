@@ -65,6 +65,7 @@ count = count_by_value(array, x)
 if count == 0:
     print(-1)
 # 값이 x인 원소 존재하면
+else:
     print(count)
     
     
