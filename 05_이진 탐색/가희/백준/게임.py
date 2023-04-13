@@ -17,7 +17,8 @@ x, y = map(int, input().split())
 
 z = floor(100 * y / x)
 
-start, end = 0, 1000000000
+result = 0
+start, end = 1, 1000000000
 if z >= 99: # 승률 99보다 높아질 수 없음
     print(-1)
 else:
@@ -25,7 +26,8 @@ else:
         mid = (start + end) // 2
         # mid번 이겼을 때 승률
         if floor(100 * (y + mid) / (x + mid)) > z:
+            result = mid
             end = mid - 1
         else:
             start = mid + 1
-    print(end + 1)
+    print(result)
